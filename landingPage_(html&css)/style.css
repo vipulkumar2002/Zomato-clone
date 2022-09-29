@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* globle */
+body{
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: #ebf2ff;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 65px 0 rgba(0, 0, 0, .15);
+}
+
+.navbar-brand{
+    width: 35%;
+    margin-left: 10px
+}
+
+.navbar-logo{
+    width: 100%;
+}
+
+.button-primary{
+    background-image: linear-gradient(
+        to right,
+        #ff512f 0%,
+        #dd2476 51%,
+        #ff512f 100%
+      );
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.hero-container{
+    width: 100%;
+}
+
+.hero-img-container{
+    width: 100%;
+}
+
+.hero-img{
+    width: 100%;
+}
+
+.hero-discription h1{
+    font-size: 33px;
+    color: #1d3557;
+    margin: 20px 0;
+}
+
+.explore-menu-container{
+    margin-top: 30px;
+}
+
+.explore-menu-card{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+
+.food-img{
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.food-menu-card-discription {
+    padding: 40px;
+}
+
+.explore-menu-text{
+    font-size: 33px;
+    color: #1d3557;
+    margin: 20px 0;
+    text-align: center;
+
+}
+
+.explore-menu-viwe-more{
+    display: flex;
+    justify-content: center;
+}
+
+.restaurants-discription{
+    font-size: 33px;
+    color: #1d3557;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.restaurants-grid-row-one, 
+.restaurants-grid-row-two{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    margin-bottom:5px ;
+}
+
+.restaurants-grid-row-one{
+    align-items: baseline;
+}
+
+.restaurant-1-img,
+.restaurant-2-img,
+.restaurant-3-img,
+.restaurant-4-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.restaurant-1,.restaurant-4{
+    width: 100%;
+    height: 150px;
+}
+
+.restaurant-2,.restaurant-3{
+    width: 120%;
+    height: 200px;
+}
+
+/* for tablate */
+@media (min-width: 768px){
+    .navbar{
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+
+    .navbar-brand{
+        width: 150px;
+    }
+    .navbar-logo{
+        width: 150px;
+    }
+    .button-primary{
+        padding: 12px;
+        margin-right: 20px;
+        font-size: 20px;
+    }
+
+    .hero-container{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .explore-menu-lists{
+        display: flex;
+        margin-top: 50px;
+        
+    }
+    .explore-menu-card{
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+
+    #pizza-card{
+        margin-top: -20px;
+        margin-bottom: 30px;
+    }
+
+    .explore-menu-container{
+        position: relative;
+    }
+    .explore-menu-bg-rombas{
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(
+        to right,
+        #ff512f 0%,
+        #dd2476 51%,
+        #ff512f 100%
+      );
+      z-index: -5;
+      transform: skewY(-5deg);
+    }
+
+    .restaurants-discription{
+        font-size: 33px;
+        width: 100;
+    }
+
+    .restaurants-container{
+        display: flex;
+        align-items: center;
+    }
+
+    .restaurants-grid{
+        width: 100%;
+    }
+}
+
+/* for laptop */
+@media (min-width: 1020px){
+    .container{
+       width: 85%;
+    }
+
+    .hero-discription h1{
+        font-size: 58px;
+    }
+
+    .explore-menu-lists{
+        display: flex;
+        margin-left: 10px;
+    }
+    .explore-menu-card{
+        margin-right: 10px;
+        
+    }
+
+    .explore-menu-text{
+        font-size: 58px;
+    }
+
+    .restaurants-discription{
+        font-size: 58px;
+        
+    }
+    .restaurants-container{
+        margin-top: 30px;
+    }
+
+    .restaurants-discription{
+        margin-right: 50px;
+    }
+}
+
+/* for PC */
+@media (min-width: 1400px){
+    
+}
