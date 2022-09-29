@@ -68,7 +68,7 @@
 5. <b>deploy this project</b> on your local server by using this command
 
    ```bash
-   cd MERN-ECommerce
+   cd Zomato-clone
    npm run dev
    ```
 
@@ -82,15 +82,15 @@
 
 ### App Description:
 
-    <!-- 1. user can view all products
-    2. user can view single product
-    3. user can search products and view products by category and price range
-    4. user can add to cart checkout products using credit card info
-    5. user can register & sign in
-    6. admin can create, edit, update & delete products
-    7. admin can create categories
-    8. admin can view ordered products
-    9. admin can change the status of a product (processing, shipped, delivered, etc.) -->
+    1. Auth (Authenticating the user and creating the user in the database)
+    2. Food (Food Items and their details)
+    3. Restaurant (Restaurants and their details)
+    4. Menu (Menu and its details ) Adding new Menu, updating Menu
+    5. Payments (Payments and its details)
+    6. Reviews (Reviews and its details)
+    7. User (User and its details)
+    8. Images (Images and its details)
+    9. Mail (Mail and its details)
 
 <!-- 6. <b>Deployed on</br> https://ecommerce-ak.herokuapp.com/ -->
 
