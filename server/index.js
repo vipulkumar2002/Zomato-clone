@@ -15,25 +15,16 @@ app.use(express.json());
 // app.use(helmet());
 
 //connect DB
-// import connectDB from "./database/connection";
+import connectDB from "./database/connection";
 
-// const PORT = process.env.DEFAULT_PORT;
-// app.listen(PORT, () => {
-//   connectDB()
-//     .then(() => {
-//       console.log(`Server is running at ${PORT} !!`);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-
-//       console.log("Server is not running !!");
-//     });
-// });
-
-app.get("/", (req, res) => {
-  res.json({ message: "server is running." });
-});
-
-app.listen(4000, () => {
-  console.log("Server is running !!");
+const PORT = process.env.DEFAULT_PORT;
+app.listen(PORT, () => {
+  connectDB()
+    .then(() => {
+      console.log(`Server is running at ${PORT} !!`);
+    })
+    .catch((err) => {
+      console.log("Server is running, but database connection failed..!!");
+      console.log(err);
+    });
 });
