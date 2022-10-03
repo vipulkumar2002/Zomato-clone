@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(helmet());
 
 //*************************** import API **************************//
-import Auth from "./API/Auth";
+import Auth from "./API/auth";
 
 //*************************** Create Routes **************************//
 app.use("/auth", Auth);
