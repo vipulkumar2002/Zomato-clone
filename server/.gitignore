@@ -3,7 +3,7 @@
 # Dependency directories
 /node_modules
 /.pnp
-.env
+/.env
 /dist
 .pnp.js
 package-lock.json
