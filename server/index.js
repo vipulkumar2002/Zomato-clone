@@ -16,9 +16,11 @@ app.use(helmet());
 
 //*************************** import API **************************//
 import Auth from "./API/auth";
+import Food from "./API/food";
 
 //*************************** Create Routes **************************//
 app.use("/auth", Auth);
+app.use("/food", Food);
 
 //connect DB
 import connectDB from "./database/connection";

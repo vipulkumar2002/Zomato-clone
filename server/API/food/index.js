@@ -118,4 +118,26 @@ Router.get("/c/:category", async (req, res) => {
   }
 });
 
+/**
+ * Route     /:_id
+ * Des       delete food based on particular id
+ * Params    _id
+ * body      none
+ * Access    Public
+ * Method    DELETE
+ */
+Router.delete("/:_id", async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const food = await FoodModel.findOneAndDelete({ _id });
+    return res.json({
+      food,
+      status: "success",
+      message: "Food deleted",
+    });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 export default Router;
