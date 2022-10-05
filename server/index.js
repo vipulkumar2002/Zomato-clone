@@ -24,16 +24,19 @@ app.use(passport.session());
 //*************************** import API **************************//
 import Auth from "./API/auth";
 import User from "./API/user";
+import Menu from "./API/menu";
+import Image from "./API/image";
+import Review from "./API/review";
 import Food from "./API/food";
 
 //*************************** Create Routes **************************//
 app.use("/auth", Auth);
 app.use("/user", User);
+app.use("/menu", Menu);
 app.use("/food", Food);
 
 //connect DB
 import connectDB from "./database/connection";
-
 const PORT = process.env.DEFAULT_PORT;
 app.listen(PORT, () => {
   connectDB()

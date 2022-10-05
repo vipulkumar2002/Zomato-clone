@@ -1,51 +1,39 @@
 import express from "express";
-
+import passport from "passport";
 const Router = express.Router();
 
 import { FoodModel } from "../../database/allModels";
 
 /**
- * Route     /add
+ * Route     /add/:_id
  * Des       Create New Food Item
- * Params    none
- * Access    Public
+ * Params    _id
+ * Access    Private
  * Method    POST
  */
-Router.post("/add", async (req, res) => {
-  try {
-    const {
-      name,
-      discription,
-      isVeg,
-      isContainEgg,
-      catagory,
-      photos,
-      price,
-      oddOn,
-      restaurant,
-    } = req.body;
+Router.post(
+  "/add/:_id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { _id } = req.params;
+      const { foodDetails } = req.body;
+      const addNewFoodItem = await FoodModel.findByIdAndUpdate(
+        { user: _id },
+        { $push: { foodDetails } },
+        { new: true }
+      );
 
-    const food = new FoodModel({
-      name,
-      discription,
-      isVeg,
-      isContainEgg,
-      catagory,
-      photos,
-      price,
-      oddOn,
-      restaurant,
-    });
-    await food.save();
-    return res.json({
-      food,
-      sataus: "success",
-      message: "Food Added",
-    });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
+      return res.json({
+        addNewFoodItem,
+        sataus: "success",
+        message: "Food Added",
+      });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
   }
-});
+);
 
 /**
  * Route     /:_id
@@ -119,19 +107,19 @@ Router.get("/c/:category", async (req, res) => {
 });
 
 /**
- * Route     /:_id
+ * Route     /delete/:_id
  * Des       delete food based on particular id
  * Params    _id
  * body      none
  * Access    Public
  * Method    DELETE
  */
-Router.delete("/:_id", async (req, res) => {
+Router.delete("/delete/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
-    const food = await FoodModel.findOneAndDelete({ _id });
+    await FoodModel.findOneAndDelete({ _id });
     return res.json({
-      food,
+      food: {},
       status: "success",
       message: "Food deleted",
     });
