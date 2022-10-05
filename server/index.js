@@ -1,25 +1,34 @@
 //*************************** import packages(Libraey) **************************//
 import dotenv from "dotenv";
-// initilize dotenv
-dotenv.config();
 import express from "express";
 import helmet from "helmet";
-//Helmet helps you secure your Express apps
-//by setting various HTTP headers
+import passport from "passport";
+import session from "express-session";
 
-//use packages
+// Private route authorization config
+import privateRouteConfig from "./config/routeConfig";
+
+//****************************************** Use Packages ***************************//
+dotenv.config();
+privateRouteConfig(passport);
+
 const app = express();
-
 app.use(express.json());
 // app.use(cors());
 app.use(helmet());
+// adding additional passport configuration
+app.use(session({ secret: process.env.SECRETORKEY }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //*************************** import API **************************//
 import Auth from "./API/auth";
+import User from "./API/user";
 import Food from "./API/food";
 
 //*************************** Create Routes **************************//
 app.use("/auth", Auth);
+app.use("/user", User);
 app.use("/food", Food);
 
 //connect DB

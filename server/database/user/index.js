@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema(
 
 // Attachments
 UserSchema.methods.generateJwtToken = function () {
-  return jwt.sign({ user: this._id.toString() }, "ZomatoClone");
+  return jwt.sign({ user: this._id.toString() }, process.env.SECRETORKEY);
 };
 
 //helper function
