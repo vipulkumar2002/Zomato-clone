@@ -136,7 +136,7 @@ const LargeView = ({ user, isDropdownOpen, setIsDropdownOpen }) => {
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const user = {
-    // fullName: "Vipul",
+    fullName: "Vipul",
   };
   return (
     <>
