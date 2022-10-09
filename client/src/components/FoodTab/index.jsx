@@ -105,7 +105,7 @@ const LargeViews = () => {
     <>
       <div className="hidden lg:flex gap-14 container px-20 my-8 mx-auto">
         {allTypes.map((item) => (
-          <Link key={item.id} to={`/${item.id}`} className="w-36">
+          <Link key={item.id} to={`/${item.id}`} className="w-38">
             <div
               className={classnames(
                 "flex items-center gap-3 pb-2 transition duration-700 ease-in-out",
