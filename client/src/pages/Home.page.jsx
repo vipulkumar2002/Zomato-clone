@@ -13,7 +13,7 @@ import Nutrition from "../components/Nutrition";
 const HomePage = () => {
   const { type } = useParams();
   return (
-    <div>
+    <div className="my-5 mb-20 md:mb-10">
       {type === "delivery" && <Delivery />}
       {type === "dining" && <Dining />}
       {type === "night" && <NightLife />}

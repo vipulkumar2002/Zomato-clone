@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import RestaurantCard from "./DeliveryCategoryCard";
+import RestaurantCard from "../RestaurantCard";
 import DeliveryCarousel from "./DeliveryCarousel";
 const Delivery = () => {
   const [restaurantList, setRestaurantList] = useState([
