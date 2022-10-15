@@ -41,7 +41,7 @@ const MapView = (props) => {
         >
           <span className="text-zomato-400">
             <FaDirections />
-          </span>{" "}
+          </span>
           Direction
         </a>
       </div>
