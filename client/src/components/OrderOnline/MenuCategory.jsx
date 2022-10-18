@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const MenuCategory = (props) => {
   const { id } = useParams();
@@ -16,9 +16,7 @@ const MenuCategory = (props) => {
         href={`/restaurant/${id}/order-online/#${props.target}`}
         id={props.name}
       >
-        <button>
-          {props.name} ({props.items.length})
-        </button>
+        {props.name} ({props.items.length})
       </a>
     </>
   );
