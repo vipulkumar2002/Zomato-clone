@@ -1,6 +1,7 @@
 //*************************** import packages(Libraey) **************************//
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
 import session from "express-session";
@@ -14,7 +15,7 @@ privateRouteConfig(passport);
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 app.use(helmet());
 // adding additional passport configuration
 app.use(session({ secret: process.env.SECRETORKEY }));
