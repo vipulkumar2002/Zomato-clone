@@ -13,41 +13,20 @@ import { RestaurantModel } from "../../database/allModels";
  */
 Router.post("/add", async (req, res) => {
   try {
-    const {
-      name,
-      city,
-      address,
-      cuisine,
-      restaurantTiming,
-      contactNum,
-      webside,
-      populerDishes,
-      averageCast,
-      amenties,
-      menuImages,
-      reviews,
-      photos,
-    } = req.body;
-    const restaurant = new RestaurantModel({
-      name,
-      city,
-      address,
-      cuisine,
-      restaurantTiming,
-      contactNum,
-      webside,
-      populerDishes,
-      averageCast,
-      amenties,
-      menuImages,
-      reviews,
-      photos,
-    });
-    await restaurant.save();
-    return res.json({
-      restaurant,
-      status: "success",
-      message: "Restaurant is added !",
+    const { restaurantData } = req.body;
+
+    console.log({ restaurantData });
+
+    if (!restaurantData) {
+      return res.status(400).json({
+        success: false,
+        message: "No data provided",
+      });
+    }
+    const newRestaurant = await RestaurantModel.create(restaurantData);
+
+    return res.status(200).json({
+      newRestaurant,
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });

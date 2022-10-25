@@ -28,12 +28,15 @@ import User from "./API/user";
 import Menu from "./API/menu";
 import Image from "./API/image";
 import Review from "./API/review";
+import Restuarant from "./API/restaurant";
 import Food from "./API/food";
 
 //*************************** Create Routes **************************//
 app.use("/auth", Auth);
 app.use("/user", User);
 app.use("/menu", Menu);
+app.use("/image", Image);
+app.use("/restuarant", Restuarant);
 app.use("/food", Food);
 
 //connect DB
