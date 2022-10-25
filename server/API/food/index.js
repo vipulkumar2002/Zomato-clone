@@ -11,8 +11,16 @@ import { FoodModel } from "../../database/allModels";
  * Access    Private
  * Method    POST
  */
+
+/**
+ * Route     /add/:_id
+ * Des       Create New Food Item
+ * Params    _id
+ * Access    Private
+ * Method    POST
+ */
 Router.post(
-  "/add/:_id",
+  "/update/:_id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {

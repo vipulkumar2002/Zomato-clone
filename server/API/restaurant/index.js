@@ -2,7 +2,7 @@ import express from "express";
 
 const Router = express.Router();
 
-import { RestaurantModel } from "../../database/allModels";
+import { RestaurantModel } from "../../database/restaurant/index";
 
 /**
  * Route     /add
@@ -13,9 +13,9 @@ import { RestaurantModel } from "../../database/allModels";
  */
 Router.post("/add", async (req, res) => {
   try {
-    const { restaurantData } = req.body;
+    const restaurantData = req.body;
 
-    console.log({ restaurantData });
+    console.log(restaurantData);
 
     if (!restaurantData) {
       return res.status(400).json({

@@ -9,11 +9,36 @@ import { MenuModel, ImageModel } from "../../database/allModels";
  * Route     /add/:_id
  * Des       Add new menu
  * Params    none
+ * Access    Public
+ * Method    POST
+ */
+
+Router.post("/add/:_id", async (req, res) => {
+  try {
+    const menuData = req.body;
+    // console.log(menuData);
+    if (!menuData) {
+      return res.status(400).json({
+        success: false,
+        message: "No data provided",
+      });
+    }
+    const newMenu = await MenuModel.create(menuData);
+    return res.json(newMenu);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+/**
+ * Route     /add/:_id
+ * Des       update menu for restaurant
+ * Params    none
  * Access    Private
  * Method    POST
  */
 Router.post(
-  "/add/:_id",
+  "update/:_id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {

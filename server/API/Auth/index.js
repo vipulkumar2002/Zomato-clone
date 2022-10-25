@@ -40,4 +40,19 @@ Router.post("/signin", async (req, res) => {
   }
 });
 
+/**
+ * Router       /google
+ * Des          login/signin user by google
+ * Params       none
+ * Access       Public
+ * Method       POST
+ */
+Router.post("/google", async (req, res) => {
+  try {
+    const vipu = "vipul";
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 export default Router;
