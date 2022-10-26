@@ -4,6 +4,7 @@ import passport from "passport";
 const Router = express.Router();
 
 import { MenuModel, ImageModel } from "../../database/allModels";
+import { validateId } from "../../validation/common.validation";
 
 /**
  * Route     /add/:_id
@@ -15,6 +16,7 @@ import { MenuModel, ImageModel } from "../../database/allModels";
 
 Router.post("/add/:_id", async (req, res) => {
   try {
+    await validateId(req.params);
     const menuData = req.body;
     // console.log(menuData);
     if (!menuData) {

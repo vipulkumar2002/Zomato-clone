@@ -2,11 +2,10 @@
 
 # Dependency directories
 /node_modules
-/.pnp
 /.env
-/dist
-.pnp.js
 /package-lock.json
+/dist
+
 
 
 # testing

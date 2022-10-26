@@ -3,6 +3,10 @@ import express from "express";
 const Router = express.Router();
 
 import { RestaurantModel } from "../../database/restaurant/index";
+import {
+  ValidateRestaurantCity,
+  ValidateSearchString,
+} from "../../validation/restaurant.validation";
 
 /**
  * Route     /add
@@ -44,6 +48,7 @@ Router.post("/add", async (req, res) => {
 Router.get("/:_id", async (req, res) => {
   try {
     //query(example) => http://localhost:4000/restaurant/?city=indore
+    await ValidateRestaurantCity(req.query);
     const { city } = req.query;
     const restaurants = await RestaurantModel.find({ city });
     if (restaurants === 0) {
@@ -94,6 +99,7 @@ Router.get("/:_id", async (req, res) => {
  */
 Router.get("/search/:searchString", async (req, res) => {
   try {
+    await ValidateSearchString(req.params);
     const { searchString } = req.params;
     const restaurant = await RestaurantModel({
       name: { $regex: searchString, $options: "i" },

@@ -4,6 +4,7 @@ import multer from "multer";
 import { ImageModel } from "../../database/allModels";
 
 import { s3Upload } from "../../utils/s3";
+import { validateId } from "../../validation/common.validation";
 
 //muter config
 const storage = multer.memoryStorage();
@@ -20,6 +21,7 @@ const Router = express.Router();
  */
 Router.get("/:_id", async (req, res) => {
   try {
+    await validateId(req.params);
     const image = await ImageModel.findById(req.params._id);
     return res.json({ image });
   } catch (error) {

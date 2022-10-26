@@ -3,6 +3,10 @@ import passport from "passport";
 const Router = express.Router();
 
 import { FoodModel } from "../../database/allModels";
+import {
+  validateCategory,
+  validateId,
+} from "../../validation/common.validation";
 
 /**
  * Route     /add/:_id
@@ -24,6 +28,7 @@ Router.post(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
+      await validateId(req.params);
       const { _id } = req.params;
       const { foodDetails } = req.body;
       const addNewFoodItem = await FoodModel.findByIdAndUpdate(
@@ -52,6 +57,7 @@ Router.post(
  */
 Router.get("/:_id", async (req, res) => {
   try {
+    await validateId(req.params);
     const { _id } = req.params;
     const food = await FoodModel.findById(_id);
     return res.json({
@@ -73,6 +79,7 @@ Router.get("/:_id", async (req, res) => {
  */
 Router.get("/r/:_id", async (req, res) => {
   try {
+    await validateId(req.params);
     const { _id } = req.params;
     const foods = await FoodModel.find({ restaurent: _id });
     return res.json({
@@ -94,6 +101,7 @@ Router.get("/r/:_id", async (req, res) => {
  */
 Router.get("/c/:category", async (req, res) => {
   try {
+    await validateCategory(req.params);
     const { category } = req.params;
     const foods = FoodModel.find({
       category: { $regex: category, $options: "i" },
@@ -124,6 +132,8 @@ Router.get("/c/:category", async (req, res) => {
  */
 Router.delete("/delete/:_id", async (req, res) => {
   try {
+    await validateId(req.params);
+
     const { _id } = req.params;
     await FoodModel.findOneAndDelete({ _id });
     return res.json({

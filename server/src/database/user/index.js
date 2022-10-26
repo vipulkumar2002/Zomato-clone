@@ -14,8 +14,6 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       default: "Please Enter your password !",
-      maxLength: [16, "Password cann't exceed 16 character !"],
-      minLength: [6, "Name should have atleat 6 character !"],
     },
     address: [{ detail: { type: String }, for: { type: String } }],
     phoneNumber: [
