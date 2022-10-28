@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_UP, LOG_OUT, GOOGLE_AUTH } from "./auth.type";
+import { SIGN_IN, SIGN_UP, SIGN_OUT, GOOGLE_AUTH } from "./auth.type";
 
 const initialState = {};
 const authReducer = (state = initialState, action) => {
@@ -18,7 +18,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
-    case LOG_OUT:
+    case SIGN_OUT:
       return {};
     default:
       return {
