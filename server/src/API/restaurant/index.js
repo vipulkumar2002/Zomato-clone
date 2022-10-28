@@ -19,7 +19,7 @@ Router.post("/add", async (req, res) => {
   try {
     const restaurantData = req.body;
 
-    console.log(restaurantData);
+    // console.log(restaurantData);
 
     if (!restaurantData) {
       return res.status(400).json({

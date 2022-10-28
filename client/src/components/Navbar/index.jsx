@@ -9,6 +9,11 @@ import { Link } from "react-router-dom";
 import SignUp from "../Auth/SignUp";
 import SignIn from "../Auth/SignIn";
 
+// redux
+// import { useSelector, useDispatch } from "react-redux";
+// import { signOut } from "../../redux/reducers/auth/auth.action";
+// import { clearUser } from "../../redux/reducers/user/user.action";
+
 const MobileView = ({
   user,
   isDropdownOpen,
